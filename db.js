@@ -3,8 +3,11 @@ const connectionString = process.env.DATABASE_URL || 'postgres://iszjhuulhfovix:
 
 const pool = new Pool({
   connectionString,
-  ssl: true,
+  ssl: {
+    rejectUnauthorized: false
+  }
 })
+
 
 async function  createTable() {
   const tableQuery = await pool.query(`SELECT FROM information_schema.tables where table_name = $1`, [process.env.DATABASE_TABLE || 'log_entries'])
