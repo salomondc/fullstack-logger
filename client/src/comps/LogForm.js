@@ -11,10 +11,10 @@ const LogForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
       setLoading('...');
-      fetch(`http://localhost:${process.env.PORT || 4000}/log/create`,{
+      fetch(`/log/create`,{
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(log)
+        body: JSON.stringify(log),
       })
       .then(r => r.json())
       .then(r => r.error ? 

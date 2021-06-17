@@ -31,7 +31,7 @@ function App() {
     console.log(logs);
     const getLogs = async () => {
         setLoading('...');
-        fetch(`http://localhost:${process.env.PORT || 4000}/logs`, { headers: {
+        fetch(`/logs`, { headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         }}

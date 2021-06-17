@@ -1,14 +1,18 @@
 require('dotenv').config({path: '../.env'})
 const express = require('express')
-const app = express()
+const path = require('path')
 const cors = require("cors")
 const pool = require("./db")
 const port = process.env.PORT || 4000;
+const app = express()
 app.use(cors());
 app.use(express.json());
 
+app.use(express.static(path.join(__dirname, "client/build")));
+
+
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
+  app.use(express.static(path.join(__dirname, "client/build")));
 }
 
 app.post("/log/create", async(req, res) => {
