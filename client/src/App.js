@@ -28,7 +28,6 @@ function App() {
   }
   
   useEffect(() => {
-    console.log(logs);
     const getLogs = async () => {
         setLoading('...');
         fetch(`/logs`, { headers: {
@@ -42,7 +41,6 @@ function App() {
         .sort((a, b) => b.startAt - a.startAt)
         .map(log => logFormatDates(log)))
         .then(update => {
-          console.log(update.length);
           setLoading(
           <cite>
             Up to date
@@ -71,7 +69,7 @@ function App() {
           <>
             <ul className="showLogs head">
               <li>
-                <b>Description</b><br />
+                <b>Description</b><br/>
                 <data className='dates' style={{minHeight: "max-content"}}>Start Date<br/>End Date</data>
               </li>
             </ul>

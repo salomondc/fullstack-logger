@@ -1,8 +1,9 @@
 const Pool = require("pg").Pool;
-const connectionString = process.env.DATABASE_URL || 'postgresql://postgres:postgres@localhost:5432/postgres';
+const connectionString = process.env.DATABASE_URL || 'postgres://iszjhuulhfovix:4b05b2acd555bf100e7645390dfe894ac0a41a531345d886034ee2e7b2006968@ec2-3-233-7-12.compute-1.amazonaws.com:5432/dapssiiptcs9pj';
 
 const pool = new Pool({
   connectionString,
+  ssl: true,
 })
 
 async function  createTable() {
