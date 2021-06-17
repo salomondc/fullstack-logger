@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === 'production') {
 app.post("/log/create", async(req, res) => {
   try {
     const {description, startAt, endAt} = req.body;
-    const newLog = await pool.query('INSERT INTO log_entries ("description", "startAt", "endAt") VALUES($1, $2, $3) RETURNING *',
+    const newLog = await pool.query(`INSERT INTO ${process.env.DATABASE_TABLE || 'log_entries'} ("description", "startAt", "endAt") VALUES($1, $2, $3) RETURNING *`,
     [description, startAt, endAt]
     );
 
@@ -27,7 +27,7 @@ app.post("/log/create", async(req, res) => {
 
 app.get("/logs", async (req, res) => {
   try {
-    const allLogs = await pool.query("SELECT * FROM log_entries");
+    const allLogs = await pool.query(`SELECT * FROM ${process.env.DATABASE_TABLE || 'log_entries'}`);
     res.json(allLogs. rows);
   } catch (error) {
     console.error(error);
