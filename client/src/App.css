@@ -87,7 +87,6 @@ body {
 
 #logEntry input:not([type="submit"]), #logEntry textarea {
   font-family: "JetBrains Mono";
-
   font-size: 1.05rem;
   min-height: 2rem;
   width: auto;

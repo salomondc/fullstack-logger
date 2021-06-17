@@ -3,9 +3,9 @@ const connectionString = process.env.DATABASE_URL || 'postgresql://postgres:post
 
 const pool = new Pool({
   connectionString,
-  ssl: {
-    rejectUnauthorized: false // Heroku Hobby Dev Tier, NO SSL
-  }
+  //ssl: {
+  //  rejectUnauthorized: false // Heroku Hobby Dev Tier, NO SSL
+  //}
 })
 
 
