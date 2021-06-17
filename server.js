@@ -24,7 +24,7 @@ app.post("/log/create", async(req, res) => {
 
     res.json(newLog.rows[0]);
   } catch (error) {
-    res.send({...error, error:true});
+    res.send({...error, error:true}); // SEND FORM ERROR
     console.error(error);
   }
 })
