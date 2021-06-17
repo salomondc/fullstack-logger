@@ -1,17 +1,11 @@
 const Pool = require("pg").Pool;
 
-const pool = new Pool({
-  user: process.env.DATABASE_USER ||'postgres',
-  host: process.env.DATABASE_URI || 'localhost',
-  database: process.env.DATABASE_NAME || 'postgres',
-  password: process.env.DATABASE_PW || 'postgres',
-  port: process.env.DATABASE_PORT || 5432,
-});
+const pool = new Pool(process.env.DATABASE_URL || 'postgresql://postgres:postgres@localhost:5432/postgres');
 
-async function  createTable() {
+async function tableExists() {
   const tableQuery = await pool.query(`SELECT FROM information_schema.tables where table_name = $1`, [process.env.DATABASE_TABLE || 'log_entries'])
   if(tableQuery.rows.length === 0) {
-      //table doesn't exist. make it
+    //table doesn't exist. make it
     await pool.query(
       `CREATE TABLE ${process.env.DATABASE_TABLE || 'log_entries'}(
       id SERIAL PRIMARY KEY,
@@ -26,6 +20,6 @@ async function  createTable() {
     )
   }
 }
-createTable();
 
+tableExists();
 module.exports = pool;

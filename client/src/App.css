@@ -118,6 +118,16 @@ body {
   margin: auto 0;
 }
 
+@keyframes highlight {
+  0% {background-color: #AAFFBB44; filter: brightness(1.1)}
+  20% {background-color: #AAFFBB44; filter: brightness(1.1)}
+  100% {background-color: unset; filter: brightness(1)}
+}
+
+.new {
+  animation: 1s forwards highlight;
+}
+
 .showLogs li {
   list-style: none;
   border-bottom: 1px solid #FFFFFF44;
@@ -152,7 +162,7 @@ body {
 }
 
 button:hover , input[type='submit']:hover, li:hover {
-  background-color: #FFFFFF11;
+  background-color: #FFFFFF11 !important;
 }
 
 .clickable {
@@ -195,16 +205,6 @@ button:hover , input[type='submit']:hover, li:hover {
   right: 0;
   left: 0;
   letter-spacing: 1px;
-}
-
-@keyframes highlight {
-  0% {background-color: #AAFFBB44; filter: brightness(1.1)}
-  20% {background-color: #AAFFBB44; filter: brightness(1.1)}
-  100% {background-color: initial; filter: brightness(1)}
-}
-
-.new {
-  animation: 1s forwards highlight !important;
 }
 
 .logNumber {
