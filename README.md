@@ -46,7 +46,7 @@ npm run install-client
 ☝ If you haven't installed or 'npm run try'ed before, then:
 
 ```bash
-npm  run dev
+npm run dev
 ```
 
 This will execute both client:3000 and server:4000 concurrently, without building the client-side app.
