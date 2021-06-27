@@ -36,14 +36,14 @@ If you want to switch to a development environment, with --dev features, you can
 npm  install
 ```
 
-Followed by:
+If you haven't installed or 'npm run try'ed before:
 
 
 ```bash
 npm run install-client
 ```
 
-☝ If you haven't installed or 'npm run try'ed before, then:
+then:
 
 ```bash
 npm run dev
