@@ -8,7 +8,7 @@ This project is live at [Heroku/Logger-SalomonC](https://logger-salomonc.herokua
 
 ## How to build
 
-To build this project in local you can simply clone this repository, make sure you're running your postgres database locally and run with npm:
+To build this project in local you can simply clone this repository (make sure you're running a postgres database locally, and have nodejs installed) and run with npm:
 
 ```bash
 npm run try
